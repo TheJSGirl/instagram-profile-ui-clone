@@ -54,8 +54,8 @@ function ModalSwitch() {
 }
 
 const Image = styled.div`
-  width: 400px;
-  height: 400px;
+  width: 305px;
+  height: 305px;
   background: no-repeat center/150% url(/img/${({index}) => index}.jpeg);
 `;
 
@@ -88,11 +88,19 @@ function Home() {
   );
 }
 
+const PhotoGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(3, 305px);
+  width:985px;
+  margin:auto;
+  margin-top: 80px;
+  gap:20px;
+`;
 function Gallery() {
   let location = useLocation();
 
   return (
-    <div>
+    <PhotoGrid>
       {IMAGES.map(i => (
         <Link
           key={i.id}
@@ -107,7 +115,7 @@ function Gallery() {
           <p>{i.title}</p>
         </Link>
       ))}
-    </div>
+    </PhotoGrid>
   );
 }
 
