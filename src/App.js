@@ -8,7 +8,7 @@ import {
   useLocation,
   useParams
 } from "react-router-dom";
-import styled from 'styled-components';
+import styled, {css} from 'styled-components';
 
 // This example shows how to render two different screens
 // (or the same screen in a different context) at the same URL,
@@ -57,6 +57,11 @@ const Image = styled.div`
   width: 305px;
   height: 305px;
   background: no-repeat center/150% url(/img/${({index}) => index}.jpeg);
+  ${({isModal}) => !isModal && css`
+    :hover {
+      opacity: .7
+    }
+  `}
 `;
 
 const IMAGES = [
@@ -67,6 +72,14 @@ const IMAGES = [
   { id: 6, title: "Crimson", color: "Crimson" },
   { id: 7, title: "Crimson", color: "Crimson" },
   { id: 8, title: "Crimson", color: "Crimson" },
+  { id: 9, title: "Seven Ate Nine", color: "#789" },
+  { id: 10, title: "Crimson", color: "#789" },
+  { id: 11, title: "Tomato", color: "#789" },
+  { id: 12, title: "Seven Ate Nine", color: "#789" },
+  { id: 13, title: "Seven Ate Nine", color: "#789" },
+  { id: 14, title: "Seven Ate Nine", color: "#789" },
+  { id: 15, title: "Seven Ate Nine", color: "#789" },
+
 
 ];
 
@@ -170,7 +183,7 @@ function Modal() {
         }}
       >
         <h1>{image.title}</h1>
-        <Image index={image.id} />
+        <Image isModal index={image.id} />
         <button type="button" onClick={back}>
           Close
         </button>
