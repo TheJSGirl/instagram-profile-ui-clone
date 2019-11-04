@@ -12,6 +12,13 @@ const UserGridStyled = styled.div`
                          "photo description";
 `;
 
+export const MiniUserGrid = styled.div`
+    display: grid;
+    justify-content: left;
+    grid-template-columns: auto auto;
+    gap: 10px;
+`;
+
 const Photo = styled.div`
     grid-area: photo;
 `;

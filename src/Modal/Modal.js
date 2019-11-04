@@ -7,6 +7,8 @@ import {
   } from "react-router-dom";
 import styled, {createGlobalStyle} from 'styled-components';
 import { PostGrid, InfoGrid} from './PostGrid';
+import {MiniUserGrid} from '../Profile/UserGrid';
+import {ProfileImage} from '../Profile/ProfileImage';
 
 const ModalStyled = styled.div`
     position: absolute;
@@ -57,8 +59,13 @@ export function Modal() {
         <PostGrid>
           <Image isModal index={image.id} />
           <InfoGrid>
-            <h1>{image.title}</h1>
-            <div>Comments</div>
+            <MiniUserGrid>
+              <ProfileImage mini />
+              <h2>GridGallary</h2>
+            </MiniUserGrid>
+            <div>
+              <h1>{image.title}</h1>
+            </div>
             <div>45 Likes</div>
           </InfoGrid>
         </PostGrid>
