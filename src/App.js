@@ -8,6 +8,7 @@ import {
   useLocation,
   useParams
 } from "react-router-dom";
+import styled from 'styled-components';
 
 // This example shows how to render two different screens
 // (or the same screen in a different context) at the same URL,
@@ -52,37 +53,23 @@ function ModalSwitch() {
   );
 }
 
+const Image = styled.div`
+  width: 400px;
+  height: 400px;
+  background: no-repeat center/150% url(/img/${({index}) => index}.jpeg);
+`;
+
 const IMAGES = [
-  { id: 0, title: "Dark Orchid", color: "DarkOrchid" },
   { id: 1, title: "Lime Green", color: "LimeGreen" },
   { id: 2, title: "Tomato", color: "Tomato" },
   { id: 3, title: "Seven Ate Nine", color: "#789" },
-  { id: 4, title: "Crimson", color: "Crimson" }
+  { id: 5, title: "Crimson", color: "Crimson" },
+  { id: 6, title: "Crimson", color: "Crimson" },
+  { id: 7, title: "Crimson", color: "Crimson" },
+  { id: 8, title: "Crimson", color: "Crimson" },
+
 ];
 
-function Thumbnail({ color }) {
-  return (
-    <div
-      style={{
-        width: 50,
-        height: 50,
-        background: color
-      }}
-    />
-  );
-}
-
-function Image({ color }) {
-  return (
-    <div
-      style={{
-        width: "100%",
-        height: 400,
-        background: color
-      }}
-    />
-  );
-}
 
 function Home() {
   return (
@@ -116,7 +103,7 @@ function Gallery() {
             state: { background: location }
           }}
         >
-          <Thumbnail color={i.color} />
+          <Image index={i.id} />
           <p>{i.title}</p>
         </Link>
       ))}
@@ -175,7 +162,7 @@ function Modal() {
         }}
       >
         <h1>{image.title}</h1>
-        <Image color={image.color} />
+        <Image index={image.id} />
         <button type="button" onClick={back}>
           Close
         </button>
