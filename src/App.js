@@ -10,7 +10,8 @@ import {
 } from "react-router-dom";
 import styled, {css} from 'styled-components';
 import UserGrid from './Profile/UserGrid';
-
+import {Modal} from './Modal/Modal';
+import Posts from './Posts';
 // This example shows how to render two different screens
 // (or the same screen in a different context) at the same URL,
 // depending on how you got there.
@@ -54,7 +55,7 @@ function ModalSwitch() {
   );
 }
 
-const Image = styled.div`
+export const Image = styled.div`
   width: 305px;
   height: 305px;
   background: no-repeat center/150% url(/img/${({index}) => index}.jpeg);
@@ -65,24 +66,6 @@ const Image = styled.div`
   `}
 `;
 
-const IMAGES = [
-  { id: 1, title: "Lime Green", color: "LimeGreen" },
-  { id: 2, title: "Tomato", color: "Tomato" },
-  { id: 3, title: "Seven Ate Nine", color: "#789" },
-  { id: 5, title: "Crimson", color: "Crimson" },
-  { id: 6, title: "Crimson", color: "Crimson" },
-  { id: 7, title: "Crimson", color: "Crimson" },
-  { id: 8, title: "Crimson", color: "Crimson" },
-  { id: 9, title: "Seven Ate Nine", color: "#789" },
-  { id: 10, title: "Crimson", color: "#789" },
-  { id: 11, title: "Tomato", color: "#789" },
-  { id: 12, title: "Seven Ate Nine", color: "#789" },
-  { id: 13, title: "Seven Ate Nine", color: "#789" },
-  { id: 14, title: "Seven Ate Nine", color: "#789" },
-  { id: 15, title: "Seven Ate Nine", color: "#789" },
-
-
-];
 
 
 function Home() {
@@ -115,7 +98,7 @@ function Gallery() {
     <div>
       <UserGrid />
       <PhotoGrid>
-        {IMAGES.map(i => (
+        {Posts.map(i => (
           <Link
             key={i.id}
             to={{
@@ -136,7 +119,7 @@ function Gallery() {
 
 function ImageView() {
   let { id } = useParams();
-  let image = IMAGES[parseInt(id, 10)];
+  let image = Posts[parseInt(id, 10)];
 
   if (!image) return <div>Image not found</div>;
 
@@ -148,48 +131,4 @@ function ImageView() {
   );
 }
 
-function Modal() {
-  let history = useHistory();
-  let { id } = useParams();
-  let image = IMAGES[parseInt(id, 10)];
 
-  if (!image) return null;
-
-  let back = e => {
-    e.stopPropagation();
-    history.goBack();
-  };
-
-  return (
-    <div
-      onClick={back}
-      style={{
-        position: "absolute",
-        top: 0,
-        left: 0,
-        bottom: 0,
-        right: 0,
-        background: "rgba(0, 0, 0, 0.15)"
-      }}
-    >
-      <div
-        className="modal"
-        style={{
-          position: "absolute",
-          background: "#fff",
-          top: 25,
-          left: "10%",
-          right: "10%",
-          padding: 15,
-          border: "2px solid #444"
-        }}
-      >
-        <h1>{image.title}</h1>
-        <Image isModal index={image.id} />
-        <button type="button" onClick={back}>
-          Close
-        </button>
-      </div>
-    </div>
-  );
-}

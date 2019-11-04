@@ -1,0 +1,16 @@
+export default  [
+  { id: 1, title: "Lime Green", color: "LimeGreen" },
+  { id: 2, title: "Tomato", color: "Tomato" },
+  { id: 3, title: "Seven Ate Nine", color: "#789" },
+  { id: 5, title: "Crimson", color: "Crimson" },
+  { id: 6, title: "Crimson", color: "Crimson" },
+  { id: 7, title: "Crimson", color: "Crimson" },
+  { id: 8, title: "Crimson", color: "Crimson" },
+  { id: 9, title: "Seven Ate Nine", color: "#789" },
+  { id: 10, title: "Crimson", color: "#789" },
+  { id: 11, title: "Tomato", color: "#789" },
+  { id: 12, title: "Seven Ate Nine", color: "#789" },
+  { id: 13, title: "Seven Ate Nine", color: "#789" },
+  { id: 14, title: "Seven Ate Nine", color: "#789" },
+  { id: 15, title: "Seven Ate Nine", color: "#789" },
+];
