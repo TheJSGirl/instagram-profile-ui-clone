@@ -33,7 +33,7 @@ const Description = styled.div`
 export default function() {
     return <UserGridStyled> 
             <Photo><ProfileImage/></Photo>
-            <Name>Name</Name>
+            <Name>GridGallary</Name>
             <Label><strong>400</strong> followers </Label>
             <Description>Pitchfork tilde lomo chillwave keytar, tofu chartreuse letterpress mumblecore. 
                  mixtape palo santo kitsch sustainable food truck asymmetrical microdosing pok pok.</Description>
