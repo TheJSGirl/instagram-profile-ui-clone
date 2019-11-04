@@ -5,6 +5,23 @@ import {
     useHistory,
     useParams
   } from "react-router-dom";
+import styled, {createGlobalStyle} from 'styled-components';
+
+const ModalStyled = styled.div`
+    position: absolute;
+    background: #fff;
+    top: ${({top}) => top}px;
+    left: 10%;
+    right: 10%;
+    padding: 15px;
+    border: 2px solid #444;
+`;
+
+const OverflowHidden = createGlobalStyle`
+  body {
+      overflow: hidden;
+  }
+`;
 
 export function Modal() {
     let history = useHistory();
@@ -27,27 +44,20 @@ export function Modal() {
           left: 0,
           bottom: 0,
           right: 0,
-          background: "rgba(0, 0, 0, 0.15)"
+          height: "5000px",
+          background: "rgba(0, 0, 0, 0.8)"
         }}
       >
-        <div
-          className="modal"
-          style={{
-            position: "absolute",
-            background: "#fff",
-            top: 25,
-            left: "10%",
-            right: "10%",
-            padding: 15,
-            border: "2px solid #444"
-          }}
+        <ModalStyled
+            top={window.scrollY + (window.innerHeight/2) - 250}
         >
+        <OverflowHidden />
           <h1>{image.title}</h1>
           <Image isModal index={image.id} />
           <button type="button" onClick={back}>
             Close
           </button>
-        </div>
+        </ModalStyled>
       </div>
     );
   }
