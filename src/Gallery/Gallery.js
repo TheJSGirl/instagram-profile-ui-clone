@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, {css} from 'styled-components';
 import UserGrid from '../Profile/UserGrid';
 import Posts from '../Posts';
 import {
@@ -7,13 +7,31 @@ import {
     useLocation
   } from "react-router-dom";
 
-import {Image} from '../App';
+
+export const ImageLink = styled(Link)`
+  background: no-repeat center/150% url(/img/${({index}) => index}.jpeg);
+  background-size: cover;
+  :hover {
+      opacity: .7
+    }
+  ${({cascade}) => cascade && css`
+    background-size: cover;
+    &:nth-of-type(2n) {
+        grid-row-start: span 2;
+    }
+  `}
+  
+`;
 
 const PhotoGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 305px);
   justify-content: center;
   gap:20px;
+  grid-auto-rows: 305px;
+  ${({cascade}) => cascade && css`
+    grid-auto-rows: 200px;
+  `}
 `;
 
 const LinkGrid = styled.div`
@@ -43,18 +61,19 @@ export function Gallery() {
         </LinkGrid>
         <PhotoGrid>
           {Posts.map(i => (
-            <Link
+            <ImageLink
               key={i.id}
+              index={i.id}
               to={{
                 pathname: `/img/${i.id}`,
                 // This is the trick! This link sets
                 // the `background` in location state.
                 state: { background: location }
               }}
+              cascade={cascade}
             >
-              <Image index={i.id} />
               <p>{i.title}</p>
-            </Link>
+            </ImageLink>
           ))}
         </PhotoGrid>
       </div>
