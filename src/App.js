@@ -45,7 +45,7 @@ function ModalSwitch() {
       <Switch location={background || location}>
         <Route exact path="/" children={<Home />} />
         <Route path="/gallery" children={<Gallery />} />
-        <Route path="/img/:id" children={<ImageView />} />
+        <Route path="/img/:id" children={<Modal />} />
       </Switch>
 
       {/* Show the modal when a background page is set */}
@@ -63,6 +63,10 @@ export const Image = styled.div`
       opacity: .7
     }
   `}
+  @media (max-width: 990px){
+    width: 100%;
+  } 
+
 `;
 
 
@@ -80,21 +84,6 @@ function Home() {
           <Link to="/img/4">Crimson</Link>
         </li>
       </ul>
-    </div>
-  );
-}
-
-
-function ImageView() {
-  let { id } = useParams();
-  let image = Posts[parseInt(id, 10)];
-
-  if (!image) return <div>Image not found</div>;
-
-  return (
-    <div>
-      <h1>{image.title}</h1>
-      <Image color={image.color} />
     </div>
   );
 }

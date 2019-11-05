@@ -32,6 +32,12 @@ const PhotoGrid = styled.div`
   ${({cascade}) => cascade && css`
     grid-auto-rows: 200px;
   `}
+  @media (max-width: 990px){
+    gap: 5px;
+    padding-left: 25px;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: calc(33vw - 10px);
+    }
 `;
 
 const LinkGrid = styled.div`
