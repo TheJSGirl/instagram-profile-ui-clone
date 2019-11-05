@@ -8,9 +8,9 @@ import {
   useParams
 } from "react-router-dom";
 import styled, {css} from 'styled-components';
-import UserGrid from './Profile/UserGrid';
 import {Modal} from './Modal/Modal';
 import Posts from './Posts';
+import {Gallery} from './Gallery/Gallery';
 // This example shows how to render two different screens
 // (or the same screen in a different context) at the same URL,
 // depending on how you got there.
@@ -84,37 +84,6 @@ function Home() {
   );
 }
 
-const PhotoGrid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(3, 305px);
-  justify-content: center;
-  gap:20px;
-`;
-function Gallery() {
-  let location = useLocation();
-
-  return (
-    <div>
-      <UserGrid />
-      <PhotoGrid>
-        {Posts.map(i => (
-          <Link
-            key={i.id}
-            to={{
-              pathname: `/img/${i.id}`,
-              // This is the trick! This link sets
-              // the `background` in location state.
-              state: { background: location }
-            }}
-          >
-            <Image index={i.id} />
-            <p>{i.title}</p>
-          </Link>
-        ))}
-      </PhotoGrid>
-    </div>
-  );
-}
 
 function ImageView() {
   let { id } = useParams();
