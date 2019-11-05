@@ -1,6 +1,4 @@
 ## Instagram Clone UI
-It has two uis:
-
 - Gallery Page
 - Modal
 
