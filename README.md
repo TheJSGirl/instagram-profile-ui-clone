@@ -1,32 +1,30 @@
-## Instagram Clone UI
-- Gallery Page
+# Instagram UI Clone
+
+## Motivation 
+
+- Practice the following:
+  - CSS Grids
+  - JavaScript & React.js
+  - Style Components
+
+## Features Implemented
+
+- Gallery Page of various layouts
 - Modal
 
+![CSS + JS](/public/assets/img1.png)
+![React + Style Componenets](/public/assets/img.png)
 
-## Screens
+
+### Screens
+
 #### Square View
-<img src="./public/assets/img4.png"  style="width: 50%;"/>
+
+![Square View](/public/assets/img4.png)
 
 #### Cascade View
-<img src="./public/assets/img3.png"  style="width: 50%;"/>
+![Cascade View](/public/assets/img3.png)
 
 
 #### Responsive View
-<img src="./public/assets/img2.png"  style="width: 50%;"/>
-
-
-<hr />
-
-
-## Made using
-
-<img src="./public/assets/img1.png"  style="width: 30%;"/>
-<img src="./public/assets/img.png"  style="width: 50%;"/>
-
-
-
-
-
-    - ReactJS
-    - Styled Components
-    - CSS in JS
+![Responsive View](/public/assets/img2.png)
